@@ -10,11 +10,18 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
             {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }, {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.(jpg|png|gif|svg)$/i,
+                use: ['file-loader'],
+                include: path.join(__dirname,'src')
             }
         ]
     },

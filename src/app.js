@@ -3,14 +3,32 @@ import ReactDOM from 'react-dom';
 
 // import style
 import css from './app.scss';
-//import logo from './loud.png'; import Material UI
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
-import FontIcon from 'material-ui/FontIcon';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+// var back =  require('./back.jpg'); import MuiThemeProvider from
+// 'material-ui/styles/MuiThemeProvider'; import RaisedButton from
+// 'material-ui/RaisedButton'; import AppBar from 'material-ui/AppBar'; import
+// FlatButton from 'material-ui/FlatButton'; import FontIcon from
+// 'material-ui/FontIcon'; import {Card, CardActions, CardHeader, CardText} from
+// 'material-ui/Card'; import { AutoRotatingCarousel, Slide } from
+// 'material-auto-rotating-carousel' import { green400, green600, blue400,
+// blue600, red400, red600 } from 'material-ui/styles/colors'
+
+import {
+    Button,
+    NavItem,
+    Embed,
+    Badge,
+    Space,
+    ButtonCircle,
+    Banner,
+    Heading,
+    Toolbar,
+    Container,
+    Base,
+    CardImage,
+    Text,
+    Card
+} from 'rebass';
 
 var CLAudioPlayer = require('react-cl-audio-player');
 var injectTapEventPlugin = require("react-tap-event-plugin");
@@ -70,38 +88,47 @@ var songs = [
         }
     }
 ];
-
+//var logo =  require('./loud.png'); var url = require("./logo.png");
 const App = () => (
-  <MuiThemeProvider>
     <div>
-      <AppBar title="LOUD"
-              iconElementRight={<FlatButton label="Music"/>}   
-              iconElementRight={<FlatButton label="Login" />}/>
-      <br/>
-      <CLAudioPlayer songs={songs}  />
-       <Card>
-    <CardHeader
-      title="Without Avatar"
-      subtitle="Subtitle"
-      actAsExpander={true}
-      showExpandableButton={true}
-    />
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
-    <CardText expandable={true}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
-  </Card>
+        <header>
+            <Toolbar>
+                <NavItem is="a">
+                    LOUD™
+                </NavItem>
+                <Space auto x={1}/>
+                <NavItem is="a">
+                    Jazz
+                </NavItem>
+                <NavItem is="a">
+                    HipHop
+                </NavItem>
+                <NavItem is="a">
+                    Login
+                </NavItem>
+            </Toolbar>
+        </header>
+        <Banner align="center" backgroundImage={require('./back.jpg')}>
+            <Heading level={2} size={0}>
+                Loud
+                <p className="P">Join the movement and share your Music with the world</p>
+                <p>or become a Fan and help Artist to create Music that will change your world.</p>
+                <Button >Create Account</Button> <Button >Top Charts</Button>
+            </Heading>
+            <div className="image-container"></div>
+        </Banner>
+        <Container>
+            {/*Trending Music*/}
+
+
+            {/*Top 20 Downloads*/}
+        </Container>
+        <footer>
+            LOUD™ © 2017 APPLICAFRO
+        </footer>
     </div>
-  </MuiThemeProvider>
+
 );
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+    <App/>, document.getElementById('root'));
